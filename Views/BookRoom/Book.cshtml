@@ -1,0 +1,89 @@
+﻿@model TravelGroupProject.Models.BookRoom
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2 class="text-center mb-4">Confirm Your Reservation</h2>
+<hr />
+
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-success text-center">
+        @ViewData["Message"]
+    </div>
+}
+
+<div class="card p-4 shadow-sm">
+
+    <div class="mb-3">
+        <label class="form-label fw-bold">Hotel Name</label>
+        <p class="form-control-plaintext border rounded p-2 bg-light">@Model.HotelName</p>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label fw-bold">Room Name</label>
+        <p class="form-control-plaintext border rounded p-2 bg-light">@Model.RoomName</p>
+    </div>
+
+    <form asp-action="Confirm" method="post" asp-controller="BookRoom">
+
+        <input type="hidden" name="hotelId" value="@Model.HotelID" />
+        <input type="hidden" name="roomId" value="@Model.RoomID" />
+        <input type="hidden" name="hotelName" value="@Model.HotelName" />
+        <input type="hidden" name="roomName" value="@Model.RoomName" />
+        <input type="hidden" name="city" value="@ViewData["City"]" />
+        <input type="hidden" name="state" value="@ViewData["State"]" />
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">First Name</label>
+                <input name="firstName" class="form-control" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Last Name</label>
+                <input name="lastName" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input name="email" class="form-control" />
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Check-In Date</label>
+                <input name="checkIn" type="date" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Check-Out Date</label>
+                <input name="checkOut" type="date" class="form-control" />
+            </div>
+        </div>
+
+        <button class="btn btn-success w-100 mt-3" type="submit">
+            Confirm Booking
+        </button>
+
+        <a class="btn btn-primary w-100 mt-3"
+           asp-controller="BookCar"
+           asp-action="Index"
+           asp-route-city="@ViewData["City"]"
+           asp-route-state="@ViewData["State"]">
+            Book a Car
+        </a>
+
+    </form>
+
+    <div class="text-center mt-4">
+        <a class="btn btn-secondary"
+           asp-controller="Rooms"
+           asp-action="SearchRooms"
+           asp-route-hotelId="@Model.HotelID"
+           asp-route-hotelName="@Model.HotelName"
+           asp-route-city="@ViewData["City"]"
+           asp-route-state="@ViewData["State"]">
+            Back to Rooms
+        </a>
+    </div>
+</div>

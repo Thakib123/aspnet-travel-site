@@ -1,0 +1,71 @@
+﻿@model List<TravelGroupProject.Models.Room>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Rooms at @ViewData["HotelName"]</h2>
+<hr />
+
+@if (ViewData["Message"] != null)
+{
+    <p class="text-danger">@ViewData["Message"]</p>
+}
+
+<div class="container">
+    <div class="row g-4">
+
+        @foreach (var r in Model)
+        {
+            <div class="col-12">
+                <div class="card shadow-sm p-3" style="border-radius:12px;">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-md-4 text-center">
+                            <img src="@Url.Content("~/" + r.ImageURL.TrimStart('/'))"
+                                 class="img-fluid rounded"
+                                 style="max-height:180px; object-fit:cover;" />
+
+                        </div>
+
+                        <div class="col-md-5">
+                            <h4 class="fw-bold">@r.Name</h4>
+                            <p class="mb-1"><strong>Bed Type:</strong> @r.BedType</p>
+                            <p class="mb-1"><strong>Guests:</strong> @r.MaxGuests</p>
+                            <p class="mb-1"><strong>Rate:</strong> @r.BasePrice.ToString("C")</p>
+                        </div>
+
+                        <div class="col-md-3 text-center">
+                            <a class="btn btn-outline-secondary w-100 mb-2"
+                               asp-action="Details"
+                               asp-route-roomId="@r.RoomID">
+                                More Info
+                            </a>
+
+                            <a class="btn btn-success w-100"
+                               asp-controller="BookRoom"
+                               asp-action="Book"
+                               asp-route-roomId="@r.RoomID"
+                               asp-route-hotelId="@ViewData["HotelID"]"
+                               asp-route-hotelName="@ViewData["HotelName"]"
+                               asp-route-roomName="@r.Name"
+                               asp-route-city="@ViewData["City"]"
+                               asp-route-state="@ViewData["State"]">
+                                Book Now
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<a class="btn btn-secondary mt-3"
+   asp-controller="Hotels"
+   asp-action="SearchHotels"
+   asp-route-city="@ViewData["City"]"
+   asp-route-state="@ViewData["State"]">
+    Back to Hotel Results
+</a>

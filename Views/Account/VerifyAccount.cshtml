@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Verify Account";
+}
+
+<div class="container m-5">
+<h2>Enter Verification Code</h2>
+    <p>A verification code has been sent to your email.</p>
+
+    <form method="post">
+        <input type="text" name="inputCode" class="form-control w-25" placeholder="Enter Code" required />
+
+        <button type="submit" class="btn btn-primary mt-3">Verify</button>
+    </form>
+
+    @if (ViewBag.Error != null)
+    {
+            <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+    }
+</div>

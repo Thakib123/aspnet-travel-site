@@ -1,0 +1,145 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TravelGroupProject
+build_property.RootNamespace = TravelGroupProject
+build_property.ProjectDir = C:\CIS 3342\TravelGroupProject\TravelGroupProject\TravelGroupProject\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\CIS 3342\TravelGroupProject\TravelGroupProject\TravelGroupProject
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Account/VerifyAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWZXJpZnlBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Account/VerifySecurityQuestions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWZXJpZnlTZWN1cml0eVF1ZXN0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Account/ViewAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWaWV3QWNjb3VudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Attraction/SearchEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR0cmFjdGlvblxTZWFyY2hFdmVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Attraction/ViewEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR0cmFjdGlvblxWaWV3RXZlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/BookCar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va0NhclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/BookingAnalytics/FlightBookingAnalytics.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ0FuYWx5dGljc1xGbGlnaHRCb29raW5nQW5hbHl0aWNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/BookRoom/Book.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1Jvb21cQm9vay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Captcha/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FwdGNoYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Flight/SearchFlights.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFNlYXJjaEZsaWdodHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Flight/ViewSeats.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFZpZXdTZWF0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Hotels/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Hotels/SearchHotels.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxzXFNlYXJjaEhvdGVscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/MyVacation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlWYWNhdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/MyVacation/ViewPaidVacations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlWYWNhdGlvblxWaWV3UGFpZFZhY2F0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Payment/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Rooms/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Rooms/RentalPrompt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcUmVudGFsUHJvbXB0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Rooms/SearchRooms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcU2VhcmNoUm9vbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Zillow/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmlsbG93XFNlYXJjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CIS 3342/TravelGroupProject/TravelGroupProject/TravelGroupProject/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-rdvhvn9a24

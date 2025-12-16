@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Answer Your Security Questions</h2>
+
+<form asp-action="VerifySecurityQuestions" method="post">
+
+    <input type="hidden" name="email" value="@ViewBag.Email" />
+
+    <label>@ViewBag.Q1</label>
+    <input class="form-control" name="A1" />
+
+    <label>@ViewBag.Q2</label>
+    <input class="form-control" name="A2" />
+
+    <label>@ViewBag.Q3</label>
+    <input class="form-control" name="A3" />
+
+    <br />
+    <button type="submit" class="btn btn-success">Verify</button>
+</form>
+
+<div class="text-danger">@ViewBag.Error</div>

@@ -1,0 +1,31 @@
+﻿@model TravelGroupProject.Models.RoomDetails
+
+<h2>@Model.RoomName</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="@Url.Content("~/" + Model.ImageURL.TrimStart('/'))"
+             class="img-fluid rounded" />
+    </div>
+
+    <div class="col-md-8">
+        <p><strong>Bed Type:</strong> @Model.BedType</p>
+        <p><strong>Max Guests:</strong> @Model.MaxGuests</p>
+        <p><strong>Price:</strong> @Model.BasePrice.ToString("C")</p>
+        <p>@Model.Description</p>
+
+        <h4>Amenities</h4>
+        <ul>
+            @foreach (var a in Model.Amenities)
+            {
+                <li>@a.Name (@a.Category)</li>
+            }
+        </ul>
+    </div>
+</div>
+
+<a class="btn btn-secondary" asp-action="BackToRooms">
+    Back to Rooms
+</a>
+

@@ -1,0 +1,109 @@
+﻿@model List<TravelGroupProject.Models.Flight>
+
+@{
+    ViewData["Title"] = "Search Flights";
+}
+
+<link rel="stylesheet" href="~/css/Flight.css" />
+
+<h2>Search Flights</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+<form asp-action="SearchFlights" method="post" class="mb-4">
+
+    <div class="row g-3">
+
+        <div class="col-md-3">
+            <label for="departCity" class="form-label">Departure City</label>
+            <input type="text" name="departCity" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            <label for="departState" class="form-label">Departure State</label>
+            <input type="text" name="departState" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            <label for="arriveCity" class="form-label">Arrival City</label>
+            <input type="text" name="arriveCity" class="form-control" value="@ViewData["ArriveCity"]" />
+        </div>
+
+        <div class="col-md-3">
+            <label for="arriveState" class="form-label">Arrival State</label>
+            <input type="text" name="arriveState" class="form-control" value="@ViewData["ArriveState"]" />
+        </div>
+
+    </div>
+
+    <div class="row g-3 mt-2">
+
+        <div class="col-md-3">
+            <label for="amenities" class="form-label">Amenities</label>
+            <input type="text" name="amenities" class="form-control" placeholder="WiFi, Meal, etc." />
+        </div>
+
+        <div class="col-md-3">
+            <label for="airline" class="form-label">Airline</label>
+            <select name="airline" class="form-select">
+                @if (ViewBag.Airlines != null)
+                {
+                    foreach (var a in ViewBag.Airlines)
+                    {
+                        <option value="@a.AirlineName">@a.AirlineName</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3 align-self-end">
+            <button type="submit" class="btn btn-primary">Search Flights</button>
+        </div>
+
+    </div>
+
+</form>
+
+
+@if (Model != null && Model.Count > 0)
+{
+    <div class="row">
+        @foreach (var flight in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@flight.AirlineImageUrl" class="card-img-top" alt="@flight.AirlineName" />
+
+                    <div class="card-body">
+                        <h5 class="card-title">@flight.AirlineName - @flight.FlightClass</h5>
+
+                        <p class="card-text">
+                            <strong>From:</strong> @flight.DepartCity, @flight.DepartState<br />
+                            <strong>To:</strong> @flight.ArriveCity, @flight.ArriveState<br />
+                            <strong>Departure:</strong> @flight.DepartDate.ToString("g")<br />
+                            <strong>Arrival:</strong> @flight.ArriveDate.ToString("g")<br />
+                            <strong>Price:</strong> $@flight.FlightPrice<br />
+                            <strong>Amenities:</strong> @string.Join(", ", flight.Amenities)
+                        </p>
+
+                        <a asp-controller="Flight"
+                           asp-action="ViewSeats"
+                           asp-route-flightId="@flight.FlightId"
+                           asp-route-flightPrice="@flight.FlightPrice"
+                           class="btn btn-success">
+                            View Seats
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+}
+else if (Model != null && Model.Count == 0)
+{
+    <div class="alert alert-info">No flights found matching your search.</div>
+}

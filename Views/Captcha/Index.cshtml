@@ -1,0 +1,52 @@
+﻿@{
+    string chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    Random rand = new Random();
+
+    char[] arr = new char[5];
+    for (int i = 0; i < 5; i++)
+    {
+        arr[i] = chars[rand.Next(chars.Length)];
+    }
+
+    string code = new string(arr);
+    Context.Session.SetString("CaptchaCode", code);
+
+    string[] bgColors = { "#fef3c7", "#fee2e2", "#d1fae5", "#e0e7ff", "#fce7f3", "#f3f4f6" };
+    string background = bgColors[rand.Next(bgColors.Length)];
+}
+
+<div style="
+        display:flex;
+        gap:10px;
+        padding:15px;
+        width:max-content;
+        border:2px solid #ccc;
+        background:@background;
+        border-radius:8px;
+    ">
+
+    @foreach (char c in code)
+    {
+        int rotate = new Random().Next(-25, 25);
+
+        <span style="
+                    font-size:34px;
+                    font-weight:bold;
+                    display:inline-block;
+                    padding:5px 10px;
+                    transform: rotate(@(rotate)deg);
+                    color:@GetRandomColor();
+                ">
+            @c
+        </span>
+    }
+</div>
+
+@functions
+{
+    public string GetRandomColor()
+    {
+        string[] colors = { "red", "green", "blue", "purple", "orange", "teal", "brown" };
+        return colors[new Random().Next(colors.Length)];
+    }
+}

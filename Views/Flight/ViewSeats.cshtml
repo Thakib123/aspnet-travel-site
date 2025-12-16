@@ -1,0 +1,49 @@
+﻿@model List<TravelGroupProject.Models.FlightSeat>
+@{
+    ViewData["Title"] = "Flight Seats";
+    int flightId = ViewBag.FlightId ?? 0;
+    double flightPrice = ViewBag.FlightPrice ?? 0;
+}
+
+<link rel="stylesheet" href="~/css/Flight.css" />
+
+<h2>Seats for Flight @flightId</h2>
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color:red;">@ViewBag.ErrorMessage</p>
+}
+
+<a asp-action="SearchFlights" class="btn btn-secondary">Back</a>
+
+<form method="post" asp-action="ReserveSeats">
+    <input type="hidden" name="flightId" value="@flightId" />
+    <input type="hidden" name="flightPrice" value="@flightPrice" />
+
+    <<div class="seat-map">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var seat = Model[i];
+            var seatClass = seat.IsBooked ? "booked-seat" : "available-seat";
+            <div class="seat-container">
+                <label class="seat-label">
+                    <input type="checkbox"
+                           name="selectedSeatsRaw"
+                           value="@seat.SeatId|@seat.SeatNumber"
+                           @(seat.IsBooked ? "disabled" : "") />
+                    <span class="@seatClass">@seat.SeatNumber</span>
+                </label>
+                <small>@seat.SeatClass</small>
+            </div>
+        }
+    </div>
+
+    <button type="submit" style="margin-top:20px;">Reserve Selected Seats</button>
+    <br />
+    <br />
+    <a asp-controller= "Attraction" asp-action="SearchEvents" class="btn btn-secondary mb-3">Events</a>
+</form>

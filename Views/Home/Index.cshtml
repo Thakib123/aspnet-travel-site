@@ -1,0 +1,69 @@
+﻿@model List<TravelGroupProject.Models.TopHotelViewModel>
+
+<div class="page-container">
+    <main>
+
+        <!-- Header -->
+        <div class="container mt-5 text-center">
+            <h1 class="display-5 fw-bold">Welcome to Vacation Vibes</h1>
+
+            <p class="lead mt-3">
+                Build a dream vacation with hotels, flights, rental cars, and local attractions.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <a asp-controller="Hotels"
+                   asp-action="SearchHotels"
+                   class="btn btn-primary btn-lg">Create your dream vacation now!</a>
+
+                <a asp-controller="MyVacation"
+                   asp-action="Index"
+                   class="btn btn-success btn-lg">View My Vacation</a>
+            </div>
+        </div>
+
+        <!-- Top Hotels Section -->
+        <section class="container my-5">
+            <h3 class="text-center mb-4 fw-bold">Top Hotels in Philadelphia</h3>
+
+            <div class="row">
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var hotel in Model)
+                    {
+                        <div class="col-md-3 mb-4">
+                            <div class="card shadow-sm h-100 border-0">
+
+                                <img src="@Url.Content("~/" + hotel.ImageURL.TrimStart('/'))"
+                                     class="card-img-top"
+                                     style="height:180px; object-fit:cover;" />
+
+                                <div class="card-body">
+                                    <h5 class="card-title">@hotel.Name</h5>
+                                    <p class="text-muted mb-1">@hotel.City, @hotel.State</p>
+                                    <p class="small text-truncate">@hotel.Description</p>
+
+                                    <a asp-controller="Rooms"
+                                       asp-action="SearchRooms"
+                                       asp-route-hotelId="@hotel.HotelID"
+                                       asp-route-hotelName="@hotel.Name"
+                                       asp-route-city="@hotel.City"
+                                       asp-route-state="@hotel.State"
+                                       class="btn btn-outline-primary btn-sm w-100 mt-2">
+                                        View
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p class="text-center text-danger">No hotels found.</p>
+                }
+            </div>
+        </section>
+
+    </main>
+</div>

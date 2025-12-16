@@ -1,0 +1,120 @@
+﻿@model List<TravelGroupProject.Models.Event>
+@{
+    ViewData["Title"] = "Search Attractions";
+}
+
+@if (ViewBag.CarouselImages != null && ViewBag.CarouselImages.Count > 0)
+{
+    <div class="w-100 px-0 mb-4" style="overflow:hidden;">
+        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @for (int i = 0; i < ViewBag.CarouselImages.Count; i++)
+                {
+                    var img = ViewBag.CarouselImages[i];
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <img src="@img" class="d-block w-100 carousel-img">
+                    </div>
+                }
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+}
+else
+{
+    <p class="text-muted">Error with Image Viewer.</p>
+}
+
+<h2 class="mb-4 text-center">Search Attractions</h2>
+
+
+<form method="post" class="row g-3 mb-4 justify-content-center">
+    <div class="col-md-3">
+        <input name="city"
+               class="form-control"
+               placeholder="City"
+               required
+               value="@ViewData["City"]" />
+    </div>
+
+    <div class="col-md-2">
+        <input name="state"
+               class="form-control"
+               placeholder="State"
+               required
+               value="@ViewData["State"]" />
+    </div>
+
+    <div class="col-md-3">
+        <select name="eventType" class="form-select">
+            <option value="">All Event Types</option>
+            <option value="Sports">Sports</option>
+            <option value="Live Music">Live Music</option>
+            <option value="Theater">Theater</option>
+            <option value="Convention">Convention</option>
+            <option value="Comedy">Comedy</option>
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Search</button>
+    </div>
+</form>
+
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-striped table-hover text-center align-middle shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Remaining Tickets</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.EventName</td>
+                    <td>@item.EventDate.ToShortDateString()</td>
+                    <td>@item.EventType</td>
+                    <td>@item.RemainingTickets</td>
+                    <td>@item.TicketPrice.ToString("C")</td>
+                    <td>
+                        <a asp-action="ViewEvent"
+                           asp-route-eventId="@item.EventID"
+                           asp-route-venueId="@item.VenueID"
+                           class="btn btn-outline-primary btn-sm">
+                            View
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <div class="alert alert-info text-center">No events found for your search.</div>
+}
+
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success mt-3">@ViewBag.Message</div>
+}
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger mt-3">@ViewBag.ErrorMessage</div>
+}

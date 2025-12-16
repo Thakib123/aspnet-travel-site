@@ -1,0 +1,79 @@
+﻿@model TravelGroupProject.Models.Payment
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Complete Your Payment</h2>
+
+    <div class="alert alert-success text-center">
+        Total Amount: @Model.TotalAmount.ToString("C")
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="alert alert-info text-center">@Model.Message</div>
+    }
+
+    <!-- ---------- LOAD SAVED CARD FORM ---------- -->
+    <form method="post" asp-action="LoadSavedCard" class="mb-3">
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Email</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+
+        @if (Model.SavedCards != null && Model.SavedCards.Count > 0)
+        {
+            <div class="mb-3">
+                <label class="fw-bold">Saved Cards</label>
+
+                <select asp-for="SelectedPaymentId"
+                        class="form-select"
+                        onchange="this.form.submit()">
+
+                    <option value="0">-- Select a Saved Card --</option>
+
+                    @foreach (var card in Model.SavedCards)
+                    {
+                        <option value="@card.PaymentID">@card.DisplayText</option>
+                    }
+                </select>
+            </div>
+        }
+    </form>
+
+    <!-- ---------- PAYMENT FORM ---------- -->
+    <form method="post" asp-action="Pay">
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Name on Card</label>
+            <input asp-for="CardholderName" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Card Number</label>
+            <input asp-for="CardNumber" maxlength="16" class="form-control" />
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Expiration (MM/YY)</label>
+                <input asp-for="Expiration" class="form-control" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">CVV</label>
+                <input asp-for="CVV" maxlength="4" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-check mb-3">
+            <input asp-for="SaveCard" type="checkbox" class="form-check-input" />
+            <label class="form-check-label">Save this card</label>
+        </div>
+
+        <button class="btn btn-success w-100">
+            Pay Now
+        </button>
+
+    </form>
+</div>

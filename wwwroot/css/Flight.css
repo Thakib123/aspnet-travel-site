@@ -1,0 +1,83 @@
+﻿.flights-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.flight-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 250px;
+    border-radius: 8px;
+}
+
+    .flight-card img {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .flight-card a {
+        background: #007bff;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+.seat-map {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.seat-wrapper {
+    text-align: center;
+}
+
+.seat-label {
+    cursor: pointer;
+}
+
+.seat-checkbox {
+    display: none; /* keep hidden but clickable through label */
+}
+
+.available-seat {
+    background: #e0e0e0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.booked-seat {
+    background: #b33a3a;
+    color: #fff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    display: inline-block;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.seat-checkbox:not(:disabled):checked + .available-seat {
+    background: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+/* Button Styling */
+.reserve-btn {
+    margin-top: 20px;
+    padding: 12px 22px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}

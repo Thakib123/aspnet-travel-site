@@ -1,0 +1,67 @@
+﻿@model List<TravelGroupProject.Models.ZillowHome>
+
+<h2 class="text-center mb-4">Search Zillow Homes</h2>
+
+<form method="post" asp-action="Search" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="city" class="form-control" placeholder="Enter a city (ex: Miami, FL)" required />
+        <button class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="alert alert-info">Enter a city to begin searching.</div>
+}
+else
+{
+    <div class="row">
+
+        @foreach (var home in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow">
+
+                    <img src="@home.GetImgSrc()" class="card-img-top"
+                         style="height:220px; object-fit:cover;" />
+
+                    <div class="card-body">
+                        <h5>@home.GetStreetAddress()</h5>
+                        <p>@home.GetCity(), @home.GetState() @home.GetZipcode()</p>
+
+
+                        <p>
+                            Beds: @home.GetBedrooms() |
+                            Baths: @home.GetBathrooms() |
+                            Sq Ft: @home.GetLivingArea()
+                        </p>
+
+                        <form method="post" asp-action="RentNow">
+                            <input type="hidden" name="address" value="@home.GetStreetAddress()" />
+                            <input type="hidden" name="city" value="@home.GetCity()" />
+                            <input type="hidden" name="state" value="@home.GetState()" />
+
+                            <label class="fw-bold">Daily Rate: $500</label>
+
+                            <select name="days" class="form-select mb-3" required>
+                                @for (int d = 1; d <= 30; d++)
+                                {
+                                    <option value="@d">@d day(s)</option>
+                                }
+                            </select>
+
+                            <button class="btn btn-success w-100">Rent Now</button>
+                        </form>
+
+                        <a href="https://www.zillow.com/homedetails/@home.GetZpid()_zpid/"
+                           target="_blank" class="btn btn-outline-secondary w-100 mt-2">
+                            View on Zillow
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+}

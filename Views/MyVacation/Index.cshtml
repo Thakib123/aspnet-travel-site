@@ -1,0 +1,462 @@
+﻿@{
+    ViewData["Title"] = "My Vacation";
+
+    var hotels = ViewBag.Hotels;
+    var cars = ViewBag.Cars;
+    var attractions = ViewBag.Attractions;
+    var flights = ViewBag.Flights;
+
+    var hotelTotal = ViewBag.HotelTotal;
+    var carTotal = ViewBag.CarTotal;
+    var attractionsTotal = ViewBag.attractionsTotal;
+    var flightsTotal = ViewBag.flightsTotal;
+    var zillowTotal = ViewBag.ZillowTotal;
+
+
+    bool isGuest = ViewBag.Message != null;
+}
+
+<div class="container mt-5 mb-5">
+
+    <h2 class="text-center mb-4">My Vacation Packages</h2>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-info text-center">@ViewBag.Message</div>
+    }
+
+    <!-- HOTEL BOOKINGS -->
+    <h4 class="mt-4">Hotel Bookings</h4>
+
+    @if (hotels is System.Data.DataTable)
+    {
+        var table = hotels as System.Data.DataTable;
+
+        if (table.Rows.Count > 0)
+        {
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Hotel</th>
+                        <th>Room</th>
+                        <th>Check-In</th>
+                        <th>Check-Out</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (System.Data.DataRow h in table.Rows)
+                    {
+                        <tr>
+                            <td>@h["HotelName"]</td>
+                            <td>@h["RoomName"]</td>
+                            <td>@Convert.ToDateTime(h["CheckInDate"]).ToString("MM/dd/yyyy")</td>
+                            <td>@Convert.ToDateTime(h["CheckOutDate"]).ToString("MM/dd/yyyy")</td>
+                            <td>@Convert.ToDecimal(h["TotalAmount"]).ToString("C")</td>
+                            <td>@h["PaymentStatus"]</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td colspan="4">Total (Hotels)</td>
+                        <td colspan="2">@hotelTotal.ToString("C")</td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No hotel bookings.</p>
+        }
+    }
+    else if (hotels is List<TravelGroupProject.Models.GuestHotel>)
+    {
+        var list = hotels as List<TravelGroupProject.Models.GuestHotel>;
+
+        if (list.Count > 0)
+        {
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Hotel</th>
+                        <th>Room</th>
+                        <th>Check-In</th>
+                        <th>Check-Out</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var h in list)
+                    {
+                        <tr>
+                            <td>@h.HotelName</td>
+                            <td>@h.RoomName</td>
+                            <td>@h.CheckInDate.ToString("MM/dd/yyyy")</td>
+                            <td>@h.CheckOutDate.ToString("MM/dd/yyyy")</td>
+                            <td>@h.TotalAmount.ToString("C")</td>
+                            <td>@h.PaymentStatus</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td colspan="4">Total (Hotels)</td>
+                        <td colspan="2">@hotelTotal.ToString("C")</td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No hotel bookings.</p>
+        }
+    }
+
+    <hr class="my-4" />
+
+    <!-- CAR BOOKINGS -->
+    <h4>Car Bookings</h4>
+
+    @if (cars is System.Data.DataTable)
+    {
+        var table = cars as System.Data.DataTable;
+
+        if (table.Rows.Count > 0)
+        {
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Car</th>
+                        <th>Total Cost</th>
+                        <th>Status</th>
+                        <th>Booked On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (System.Data.DataRow c in table.Rows)
+                    {
+                        <tr>
+                            <td>@c["CarName"]</td>
+                            <td>@Convert.ToDecimal(c["TotalAmount"]).ToString("C")</td>
+                            <td>@c["PaymentStatus"]</td>
+                            <td>@Convert.ToDateTime(c["BookedOn"]).ToString("MM/dd/yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td>Total (Cars)</td>
+                        <td>@carTotal.ToString("C")</td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No car bookings.</p>
+        }
+    }
+    else if (cars is List<TravelGroupProject.Models.GuestCar>)
+    {
+        var list = cars as List<TravelGroupProject.Models.GuestCar>;
+
+        if (list.Count > 0)
+        {
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Car</th>
+                        <th>Total Cost</th>
+                        <th>Status</th>
+                        <th>Booked On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in list)
+                    {
+                        <tr>
+                            <td>@c.CarName</td>
+                            <td>@c.TotalAmount.ToString("C")</td>
+                            <td>@c.PaymentStatus</td>
+                            <td>@c.BookedOn.ToString("MM/dd/yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td>Total (Cars)</td>
+                        <td>@carTotal.ToString("C")</td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No car bookings.</p>
+        }
+    }
+
+    <hr class="my-4" />
+
+    <!-- FLIGHT BOOKINGS -->
+    <h4>Flight Bookings</h4>
+
+    @if (flights is System.Data.DataTable)
+    {
+        var table = flights as System.Data.DataTable;
+
+        if (table.Rows.Count > 0)
+        {
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Flight</th>
+                        <th>Seats</th>
+                        <th>Seat Count</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                        <th>Booked On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (System.Data.DataRow f in table.Rows)
+                    {
+                        <tr>
+                            <td>@f["FlightID"]</td>
+                            <td>@f["Seats"]</td>
+                            <td>@f["SeatCount"]</td>
+                            <td>@String.Format("{0:C}", f["TotalAmount"])</td>
+                            <td>@f["PaymentStatus"]</td>
+                            <td>@Convert.ToDateTime(f["BookedOn"]).ToString("MM/dd/yyyy hh:mm tt")</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td colspan="3">Total (Flights)</td>
+                        <td>@flightsTotal.ToString("C")</td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No Flight bookings.</p>
+        }
+    }
+    else if (flights is List<TravelGroupProject.Models.GuestFlightBooking>)
+    {
+        var list = flights as List<TravelGroupProject.Models.GuestFlightBooking>;
+
+        if (list.Count > 0)
+        {
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Flight ID</th>
+                        <th>Seats</th>
+                        <th>Seat Price</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var gf in list)
+                    {
+                        <tr>
+                            <td>@gf.FlightId</td>
+                            <td>
+                                @foreach (var seat in gf.SeatsList)
+                                {
+                                    <div>@seat.SeatNumber</div>
+                                }
+                            </td>
+                            <td>@gf.SeatPrice.ToString("C")</td>
+                            <td>@gf.TotalCost.ToString("C")</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td colspan="3">Total (Flights)</td>
+                        <td>@flightsTotal.ToString("C")</td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No Flight bookings.</p>
+        }
+    }
+
+    <hr class="my-4" />
+
+    <!-- ATTRACTION BOOKINGS -->
+    
+    <h4>Attraction Bookings</h4>
+
+    @if (attractions is System.Data.DataTable)
+    {
+        var table = attractions as System.Data.DataTable;
+
+        if (table.Rows.Count > 0)
+        {
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Price</th>
+                        <th>Tickets</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                        <th>Booked On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (System.Data.DataRow a in table.Rows)
+                    {
+                        <tr>
+                            <td>@a["EventName"]</td>
+                            <td>@Convert.ToDecimal(a["EventPrice"]).ToString("C")</td>
+                            <td>@Convert.ToInt32(a["NumberOfTickets"])</td>
+                            <td>@Convert.ToDecimal(a["TotalAmount"]).ToString("C")</td>
+                            <td>@a["PaymentStatus"]</td>
+                            <td>@Convert.ToDateTime(a["BookedOn"]).ToString("MM/dd/yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td>Total (Attractions)</td>
+                        <td>@attractionsTotal.ToString("C")</td>
+                        <td colspan="4"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No attraction bookings.</p>
+        }
+    }
+    else if (attractions is List<TravelGroupProject.Models.GuestAttraction>)
+    {
+        var list = attractions as List<TravelGroupProject.Models.GuestAttraction>;
+
+        if (list.Count > 0)
+        {
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Price</th>
+                        <th>Tickets</th>
+                        <th>Total Cost</th>
+                        <th>Status</th>
+                        <th>Booked On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in list)
+                    {
+                        <tr>
+                            <td>@a.EventName</td>
+                            <td>@a.TicketPrice.ToString("C")</td>
+                            <td>@a.NumberOfTickets</td>
+                            <td>@a.TotalCost.ToString("C")</td>
+                            <td>@a.PaymentStatus</td>
+                            <td>@a.BookedOn.ToString("MM/dd/yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td>Total (Attractions)</td>
+                        <td>@attractionsTotal.ToString("C")</td>
+                        <td colspan="4"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No attraction bookings.</p>
+        }
+    }
+<hr class="my-4" />
+
+    <!-- RENTAL BOOKINGS -->
+
+    <h4>Zillow Rentals</h4>
+
+    @if (ViewBag.ZillowRentals != null)
+    {
+        var rentals = ViewBag.ZillowRentals as System.Data.DataTable;
+
+        if (rentals.Rows.Count > 0)
+        {
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>Days</th>
+                        <th>Daily Rate</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (System.Data.DataRow r in rentals.Rows)
+                    {
+                        <tr>
+                            <td>@r["Address"], @r["City"], @r["State"]</td>
+                            <td>@r["Days"]</td>
+                            <td>@Convert.ToDecimal(r["DailyRate"]).ToString("C")</td>
+                            <td>@Convert.ToDecimal(r["TotalAmount"]).ToString("C")</td>
+                            <td>@r["PaymentStatus"]</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="fw-bold">
+                        <td colspan="3">Total (Zillow Rentals)</td>
+                        <td>@ViewBag.ZillowTotal.ToString("C")</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No Zillow rentals.</p>
+        }
+    }
+
+
+
+   
+    <div class="text-center mt-4">
+        @if (ViewBag.HasUnpaid == true)
+        {
+            <a asp-controller="Payment"
+                   asp-action="Index"
+                   class="btn btn-success btn-lg">Pay Reservation</a>
+
+            @if (Context.Session.GetInt32("UserID") == null)
+            {
+                <p class="mt-2 text-muted">You are checking out as a guest.</p>
+            }
+        }
+        else
+        {
+            <p class="text-success fw-bold">All bookings are paid!</p>
+        }
+    </div>
+
+</div>

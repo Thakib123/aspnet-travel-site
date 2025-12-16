@@ -1,0 +1,105 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\Cars\Alamo_Accent.jpg" />
+    <None Include="wwwroot\Images\Cars\Alamo_Altima.jpg" />
+    <None Include="wwwroot\Images\Cars\Alamo_Explorer.jpg" />
+    <None Include="wwwroot\Images\Cars\Avis_BMW3.jpg" />
+    <None Include="wwwroot\Images\Cars\Avis_Camry.jpg" />
+    <None Include="wwwroot\Images\Cars\Avis_Yaris.jpg" />
+    <None Include="wwwroot\Images\Cars\Budget_A4.jpg" />
+    <None Include="wwwroot\Images\Cars\Budget_Forte.jpg" />
+    <None Include="wwwroot\Images\Cars\Budget_Sonata.jpg" />
+    <None Include="wwwroot\Images\Cars\DreamRide_Civic.jpg" />
+    <None Include="wwwroot\Images\Cars\DreamRide_X3.jpg" />
+    <None Include="wwwroot\Images\Cars\DreamRide_Yaris.jpg" />
+    <None Include="wwwroot\Images\Cars\Enterprise_Camry.jpg" />
+    <None Include="wwwroot\Images\Cars\Enterprise_Elantra.jpg" />
+    <None Include="wwwroot\Images\Cars\Enterprise_Explorer.jpg" />
+    <None Include="wwwroot\Images\Cars\Hertz_Corolla.jpg" />
+    <None Include="wwwroot\Images\Cars\Hertz_Fusion.jpg" />
+    <None Include="wwwroot\Images\Cars\Hertz_Rogue.jpg" />
+    <None Include="wwwroot\Images\Cars\MetroCar_Accent.jpg" />
+    <None Include="wwwroot\Images\Cars\MetroCar_Altima.jpg" />
+    <None Include="wwwroot\Images\Cars\MetroCar_Edge.jpg" />
+    <None Include="wwwroot\Images\Cars\National_Accord.jpg" />
+    <None Include="wwwroot\Images\Cars\National_Corolla.jpg" />
+    <None Include="wwwroot\Images\Cars\National_X5.jpg" />
+    <None Include="wwwroot\Images\Cars\NeonDrive_Camry.jpg" />
+    <None Include="wwwroot\Images\Cars\NeonDrive_Caravan.jpg" />
+    <None Include="wwwroot\Images\Cars\NeonDrive_Rio.jpg" />
+    <None Include="wwwroot\Images\Cars\Sixt_Edge.jpg" />
+    <None Include="wwwroot\Images\Cars\Sixt_Elantra.jpg" />
+    <None Include="wwwroot\Images\Cars\Sixt_Forte.jpg" />
+    <None Include="wwwroot\Images\Event\Art.jpg" />
+    <None Include="wwwroot\Images\Event\cirqueshow.jpg" />
+    <None Include="wwwroot\Images\Event\comedy.jpg" />
+    <None Include="wwwroot\Images\Event\eaglesgame.jpg" />
+    <None Include="wwwroot\Images\Event\foodwinefest.jpg" />
+    <None Include="wwwroot\Images\Event\halloweenbash.jpg" />
+    <None Include="wwwroot\Images\Event\jazzfest.jpg" />
+    <None Include="wwwroot\Images\Event\lightShow.jpg" />
+    <None Include="wwwroot\Images\Event\lightshow2.jpg" />
+    <None Include="wwwroot\Images\Event\museum.jpg" />
+    <None Include="wwwroot\Images\Event\parade.jpg" />
+    <None Include="wwwroot\Images\Event\poolparty.jpg" />
+    <None Include="wwwroot\Images\Event\waterPark.jpg" />
+    <None Include="wwwroot\Images\Hotels\Aria.jpg" />
+    <None Include="wwwroot\Images\Hotels\Bellagio.jpg" />
+    <None Include="wwwroot\Images\Hotels\CaesarsPalace.jpg" />
+    <None Include="wwwroot\Images\Hotels\Canopy.jpg" />
+    <None Include="wwwroot\Images\Hotels\FourSeasons.jpg" />
+    <None Include="wwwroot\Images\Hotels\HiltonBVP.jpg" />
+    <None Include="wwwroot\Images\Hotels\Hyatt_Regency.jpg" />
+    <None Include="wwwroot\Images\Hotels\Mandalay_Bay_Beach.jpg" />
+    <None Include="wwwroot\Images\Hotels\Marriott%27s_Grande.jpg" />
+    <None Include="wwwroot\Images\Hotels\Monaco.jpg" />
+    <None Include="wwwroot\Images\Hotels\RosenShingle.jpg" />
+    <None Include="wwwroot\Images\Hotels\SapphireFalls.jpg" />
+    <None Include="wwwroot\Images\Hotels\Sonesta.jpg" />
+    <None Include="wwwroot\Images\Hotels\The_Ritz-Carlton.jpg" />
+    <None Include="wwwroot\Images\Hotels\Universal.jpg" />
+    <None Include="wwwroot\Images\Hotels\Venetian.jpg" />
+    <None Include="wwwroot\Images\Hotels\Waldorf_Astoria.jpg" />
+    <None Include="wwwroot\Images\Hotels\W_Philadelphia.jpg" />
+    <None Include="wwwroot\Images\Rooms\Bay_Suite.jpg" />
+    <None Include="wwwroot\Images\Rooms\Bella_Double_Suite.jpg" />
+    <None Include="wwwroot\Images\Rooms\Classic_Double.jpg" />
+    <None Include="wwwroot\Images\Rooms\Deluxe_King.jpg" />
+    <None Include="wwwroot\Images\Rooms\Double_Queen.jpg" />
+    <None Include="wwwroot\Images\Rooms\Economy_Single.jpg" />
+    <None Include="wwwroot\Images\Rooms\Family_Double.jpg" />
+    <None Include="wwwroot\Images\Rooms\Family_Suite.jpg" />
+    <None Include="wwwroot\Images\Rooms\Junior_Suite.jpg" />
+    <None Include="wwwroot\Images\Rooms\Lagoon_King.jpg" />
+    <None Include="wwwroot\Images\Rooms\Luxury_King_Suite.jpg" />
+    <None Include="wwwroot\Images\Rooms\Marv_King.jpg" />
+    <None Include="wwwroot\Images\Rooms\Park_View.jpg" />
+    <None Include="wwwroot\Images\Rooms\Pool_View.jpg" />
+    <None Include="wwwroot\Images\Rooms\Premier_Strip.jpg" />
+    <None Include="wwwroot\Images\Rooms\Regency_Club.jpg" />
+    <None Include="wwwroot\Images\Rooms\Rialto_Corner_Suite.jpg" />
+    <None Include="wwwroot\Images\Rooms\Skyline_View_Room.jpg" />
+    <None Include="wwwroot\Images\Rooms\Spec_Double.jpg" />
+    <None Include="wwwroot\Images\Rooms\Standard_King.jpg" />
+    <None Include="wwwroot\Images\Rooms\Studio_King.jpg" />
+    <None Include="wwwroot\Images\Rooms\Studio_Suite.jpg" />
+    <None Include="wwwroot\Images\Rooms\Villa_King.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ScottPlot" Version="5.1.57" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

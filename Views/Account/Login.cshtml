@@ -1,0 +1,48 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Login</h2>
+<hr />
+
+<form asp-controller="Account" asp-action="Login" method="POST">
+    <div class="text-danger fw-bold">
+        @ViewData["Message"]
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Email</label>
+        <input name="email"
+               class="form-control"
+               value="@(Context.Request.Cookies["UserEmail"] ?? "")"
+               required />
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Password</label>
+        <div class="position-relative">
+            <input id="password" name="password" type="password" class="form-control" value="@(Context.Request.Cookies["Password"] ?? "")" required />
+        </div>
+    </div>
+
+    <div class="form-check mb-2">
+        <input type="checkbox" name="rememberMe" value="true" class="form-check-input" id="rememberMe" />
+        <label class="form-check-label" for="rememberMe">Remember Me</label>
+    </div>
+
+    <div class="mb-3">
+        @await Html.PartialAsync("~/Views/Captcha/Index.cshtml")
+    </div>
+
+
+    <input name="captchaInput"
+           class="form-control mb-3"
+           placeholder="Enter the characters above"
+           required />
+
+    <input type="submit" value="Login" class="btn btn-primary" />
+</form>
+<br />
+<a asp-controller="Account" asp-action="ForgotPassword">Forgot Password?</a>
+<br />
+<a asp-controller="Account" asp-action="Register">Sign Up!</a>
+<br />
+

@@ -1,0 +1,41 @@
+﻿@model TravelGroupProject.Models.Hotel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>@Model.Name</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-5">
+        <img src="@Url.Content("~/" + Model.ImageURL.TrimStart('/'))"
+             class="img-fluid rounded" />
+    </div>
+
+    <div class="col-md-7">
+        <h4>@Model.City, @Model.State</h4>
+        <p>@Model.Description</p>
+        <p><strong>Address:</strong> @Model.Address</p>
+
+        <h4>Contact</h4>
+        <p><strong>Phone:</strong> @Model.Phone</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+
+        <h4>Amenities</h4>
+
+        @if (Model.Amenities != null && Model.Amenities.Count > 0)
+        {
+            <ul>
+                @foreach (var a in Model.Amenities)
+                {
+                    <li>@a.Name (@a.Category)</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No amenities listed.</p>
+        }
+
+        <br />
+        <a asp-action="SearchHotels" class="btn btn-secondary">Back to Search</a>
+    </div>
+</div>
